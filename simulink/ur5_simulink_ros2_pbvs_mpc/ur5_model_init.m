@@ -1,0 +1,10 @@
+ur5_model = loadrobot("universalUR5",DataFormat="column");
+tform = trvec2tform([-0.04,-0.11,0]);
+cameraLink = rigidBody('camera');
+cameraJoint = rigidBodyJoint('camera','fixed');
+cameraLink.Joint = cameraJoint;
+setFixedTransform(cameraLink.Joint,tform);
+endEffectorName = ur5_model.BodyNames{end};
+addBody(ur5_model,cameraLink,endEffectorName);
+% config = [0;-1.57;1.57;-1.57;-1.57;0];
+% show(ur5_model,config);
