@@ -42,8 +42,10 @@ controller_spawner_inactive_names = ["forward_velocity_controller"]
 ###########    ROS2   ############
 #################################
 export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
 export ROS_DOMAIN_ID=15
 source /opt/ros/humble/setup.bash
-export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
-source /home/ias-lab-701/ibvs_ws/install/setup.bash
+source /home/ias-lab-701/visual_servo_ws/install/setup.bash
+source /home/ias-lab-701/github_source_code/moveit2_ws/install/setup.bash
+source /home/ias-lab-701/github_source_code/ur_ws/install/setup.bash
 ```
