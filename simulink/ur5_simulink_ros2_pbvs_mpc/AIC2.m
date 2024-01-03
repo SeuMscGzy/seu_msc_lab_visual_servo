@@ -1,17 +1,17 @@
 function [u, delta_u, mu, mu_p]  = AIC2(t_now, use_y1_real, y1_real_slow,y1_APO_fast,y2_derivative_sampling,y2_APO_fast, mu_last, mu_p_last, u_last)
 e_1=4;
 e_2=4;
-k_l=0.3;
-sigma_z1_inv=0.1;
-sigma_z2_inv=0.1;
+k_l=1;
+sigma_z1_inv=0.2;
+sigma_z2_inv=0.2;
 sigma_w1_inv=1;
 sigma_w2_inv=1;
-k_i=-2;
-k_p=-5;
+k_i=-7;
+k_p=-4; 
 T_c=0.01;
 count=mod(t_now,0.05);
-trust_array_y1=[1, 0.75, 0.5, 0.25, 0];%越来越不相信采样时刻的值
-trust_array_y2=[0.5, 0.5, 0.5, 0.5, 0.5];%噪声较小时相信求导的数值
+trust_array_y1=[1, 0.75, 0.5, 0, 0];%越来越不相信采样时刻的值
+trust_array_y2=[0.75, 0.75, 0.75, 0.75, 0.75];%噪声较小时相信求导的数值
 %trust_array=[1, 1, 1, 1, 1];%一直都偏向于相信采样时刻的值，不太相信APO的值
 if(use_y1_real==0)
     mu = double(mu_last + T_c*(mu_p_last+k_l*sigma_z1_inv*(y1_APO_fast-mu_last)-k_l*sigma_w1_inv*e_1*(mu_p_last+e_1*mu_last)));

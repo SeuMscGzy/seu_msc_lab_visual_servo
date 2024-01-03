@@ -1,7 +1,8 @@
+setenv("ROS_DOMAIN_ID","15");
 A=[0 1; 0 0];
 B=[0;1];
 C=[1 0];
-desired_poles=3*[-10;-10];
+desired_poles=4*[-10;-10];
 L = acker(A', C', desired_poles)';
 %L=[130;4000;30000];
 %L=[80;1500;13000];%中间大则超调大  这个还可以
