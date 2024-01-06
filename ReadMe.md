@@ -18,7 +18,7 @@ ros2 control switch_controllers --deactivate scaled_joint_trajectory_controller 
 ros2 run object_detector object_detector
 ```
 
-5、启动伺服节点
+5、启动机械臂伺服节点
 ```shell
 ros2 run ur5_servo joint_vel_sender
 ```
