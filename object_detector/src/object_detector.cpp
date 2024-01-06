@@ -170,14 +170,18 @@ int main(int argc, const char **argv)
       
       t = vpTime::measureTimeMs() - t;
       time_vec.push_back(t);
-      std::stringstream ss;
-      ss << "Detection time: " << t << " ms for " << detector.getNbObjects() << " tags";
-      vpDisplay::displayText(I, 40, 20, ss.str(), vpColor::red);
       if(cMo_vec.size()!=0)
       {
         pixel_vec = detector.getPolygon(0);
         pose_matrix =  cMo_vec[0];
         vpDisplay::displayFrame(I, cMo_vec[0], cam, tagSize / 2, vpColor::none, 3);
+        for(size_t i= 0;i<pixel_vec.size();i++)
+        {
+          vpDisplay::displayCross(I,pixel_vec[i],14,vpColor::red,3);
+          std::ostringstream number;
+          number<<i+1;
+          vpDisplay::displayText(I,pixel_vec[i]+vpImagePoint(15,5),number.str(),vpColor::blue);
+        }
         ros_ibvs_msg.data[0] =  pixel_vec[0].get_u();
         ros_ibvs_msg.data[1] =  pixel_vec[0].get_v();
         ros_ibvs_msg.data[2] =  pixel_vec[1].get_u();
@@ -190,7 +194,6 @@ int main(int argc, const char **argv)
         ros_pbvs_msg.data[1] =  pose_matrix[1][3];
         ros_pbvs_msg.data[2] =  pose_matrix[2][3];
       }
-      vpDisplay::displayText(I, 20, 20, "Click to quit.", vpColor::red);
       vpDisplay::flush(I);
       if (vpDisplay::getClick(I, false))
         break;

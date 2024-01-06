@@ -1,1 +1,0 @@
-ur3_model = loadrobot("universalUR3",DataFormat="column");

@@ -52,7 +52,7 @@ int main(int argc, char** argv)
   // Create the subscriber to receive the array message
   auto array_sub = node_->create_subscription<std_msgs::msg::Float64MultiArray>("simulink_mpc_result", 10, arrayCallback);
   
-  auto timer_ = node_->create_wall_timer(10ms, std::bind(&publish_joint_jog));
+  auto timer_ = node_->create_wall_timer(2ms, std::bind(&publish_joint_jog));
 
   rclcpp::spin(node_);
 
