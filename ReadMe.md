@@ -1,4 +1,7 @@
 ### 位置/图像视觉伺服
+
+运行前保证当前工作空间已经被source
+
 1、启动机械臂
 ```shell
 ros2 launch ur_robot_driver ur_control.launch.py ur_type:=ur5 robot_ip:=192.168.1.102
