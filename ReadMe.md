@@ -113,5 +113,7 @@ setenv("ROS_DOMAIN_ID","15")
 
 ### 夹爪
 ip: 192.168.1.1
+
 username: admin
+
 password: iaslab701
