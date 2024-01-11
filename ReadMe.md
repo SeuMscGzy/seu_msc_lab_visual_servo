@@ -27,13 +27,17 @@ ros2 run ur5_servo joint_vel_sender
 ```shell
 ros2 run conveyor_belt_control belt_control
 ```
-7、如果未从终端启动matlab，记得在matlab命令行里输入
+7、启动夹爪控制节点
+```shell
+ros2 run onrobot_gripper_control gripper_control.py
+```
+8、如果未从终端启动matlab，记得在matlab命令行里输入
 ```matlab
 setenv("ROS_DOMAIN_ID","15")
 ```
-8、启动对应的matlab程序
+9、启动对应的matlab程序
 
-###位置视觉伺服simulink部分
+### 位置视觉伺服simulink部分
 
 目前仅实现了位置(xyz)跟踪，程序位于ias_lab_visual_servo/simulink/ur5_simulink_ros2_pbvs_mpc/ur5_simulink_ros2_pbvs_pid.slx下
 
@@ -88,7 +92,7 @@ setenv("ROS_DOMAIN_ID","15")
 </p>
 
 
-###图像视觉伺服simulink部分
+### 图像视觉伺服simulink部分
 
 主程序位于ias_lab_visual_servo/simulink/ur5_simulink_ros2_ibvs_mpc/ur5_simulink_ros2_ibvs_mpc.slx下
 
@@ -106,3 +110,8 @@ setenv("ROS_DOMAIN_ID","15")
 <p align="center">
 <img src="doc/ibvs_controller.png">
 </p>
+
+### 夹爪
+ip: 192.168.1.1
+username: admin
+password: iaslab701
