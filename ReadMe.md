@@ -38,7 +38,7 @@ setenv("ROS_DOMAIN_ID","15")
 
 The program is located under ias_lab_visual_servo/simulink/ur5_simulink_ros2_pbvs_mpc/ur5_simulink_ros2_pbvs_pid.slx
 
-⭐⭐⭐Initialize the manipulator model by executing ur5_model_init.m before running simulink. 
+⭐⭐⭐Initialize the manipulator model and the APO by executing ur5_model_init.m and cal.m before running simulink. 
 
 1、flag_control: stop_flag is used to control whether the manipulator is running. Flag_control: stop_flag is used to control whether the manipulator is running. motor_flag indicates that the motor control 0 indicates the stop, 1 to 4 indicates the forward movement of the absolute position, and -1 to -4 indicates the reverse movement to the absolute position. The greater the absolute value of the number, the faster the speed.
 <p align="center">
